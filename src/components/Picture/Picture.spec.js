@@ -22,11 +22,9 @@ describe('Picture', () => {
     jest.clearAllMocks()
   })
 
-  describe('.render', () => {
-    it('should render a <div />', () => {
-      expect(wrapper.find('.picture-div')).toBeDefined()
-      expect(wrapper.find('.picture-div').length).toEqual(1)
-    })
+  it('should render a <div />', () => {
+    expect(wrapper.find('.picture-div')).toBeDefined()
+    expect(wrapper.find('.picture-div').length).toEqual(1)
   })
 
   it('should request a random image from TheCatApi', () => {

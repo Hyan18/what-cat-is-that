@@ -25,33 +25,31 @@ describe('App', () => {
     jest.clearAllMocks()
   })
 
-  describe('.render', () => {
-    it('should render a <div />', () => {
-      expect(wrapper.find('.app-div')).toBeDefined()
-      expect(wrapper.find('.app-div').length).toEqual(1)
-    })
-    
-    it('should render a picture', () => {
-      const picture = wrapper.find("Picture")
+  it('should render a <div />', () => {
+    expect(wrapper.find('.app-div')).toBeDefined()
+    expect(wrapper.find('.app-div').length).toEqual(1)
+  })
+  
+  it('should render a picture', () => {
+    const picture = wrapper.find("Picture")
 
-      expect(picture.length).toEqual(1)
-    })
+    expect(picture.length).toEqual(1)
+  })
 
-    it('should render the breed', () => {
-      const breedType = wrapper.find("BreedType")
+  it('should render the breed', () => {
+    const breedType = wrapper.find("BreedType")
 
-      expect(breedType.length).toEqual(1)
-    })
+    expect(breedType.length).toEqual(1)
+  })
 
-    it('should request a list of breeds from TheCatApi', () => {
-      expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/breeds')
-    })
+  it('should request a list of breeds from TheCatApi', () => {
+    expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/breeds')
+  })
 
-    it('should pass the random breed to the breedType component', () => {
-      const breedType = wrapper.find("BreedType")
-      const breedNames = listOfBreeds.map(breed => breed.name)
+  it('should pass the random breed to the breedType component', () => {
+    const breedType = wrapper.find("BreedType")
+    const breedNames = listOfBreeds.map(breed => breed.name)
 
-      expect(breedNames).toContain(breedType.prop('type'))
-    })
+    expect(breedNames).toContain(breedType.prop('type'))
   })
 })

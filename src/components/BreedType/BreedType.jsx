@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class BreedType extends Component {
   constructor(props) {
@@ -6,13 +7,18 @@ class BreedType extends Component {
   }
   
   render() {
+    const { type } = this.props
 
     return (
       <div className="breedtype-div">
-        breed
+        {type}
       </div>
     )
   }
 }
 
 export default BreedType
+
+BreedType.propTypes = {
+  type: PropTypes.string.isRequired
+}
