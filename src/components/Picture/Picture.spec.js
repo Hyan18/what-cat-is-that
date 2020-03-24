@@ -4,9 +4,10 @@ import Picture from './Picture'
 import axios from 'axios'
 
 jest.mock('axios');
+const test_cat = { id: "test_id", name: "test_name", url: "test_url" }
 axios.get.mockImplementation(() => {
   return Promise.resolve({
-    data: [ { id: "test_id", name: "test_name", url: "test_url" } ]
+    data: [ test_cat ]
   })
 })
 
@@ -35,7 +36,7 @@ describe('Picture', () => {
   it('should render the random image of a cat', () => {
     const image = wrapper.find('.cat-picture')
 
-    expect(image.prop('alt')).toEqual('test_id')
-    expect(image.prop('src')).toEqual('test_url')
+    expect(image.prop('alt')).toEqual(test_cat.id)
+    expect(image.prop('src')).toEqual(test_cat.url)
   })
 })
