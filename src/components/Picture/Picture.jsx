@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 
 class Picture extends Component {
   constructor(props) {
@@ -12,7 +13,12 @@ class Picture extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://api.thecatapi.com/v1/images/search', { headers: { 'x-api-key': process.env.REACT_APP_CAT_API_KEY } })
+    axios.get(
+      'https://api.thecatapi.com/v1/images/search',
+      {
+        headers: { 'x-api-key': process.env.REACT_APP_CAT_API_KEY },
+        breed_id: this.props.breedID
+     })
       .then(
         (response) => {
           this.setState({
@@ -42,3 +48,7 @@ class Picture extends Component {
 }
 
 export default Picture
+
+Picture.propTypes = {
+  breedID: PropTypes.string.isRequired
+}

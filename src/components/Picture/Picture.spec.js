@@ -15,7 +15,7 @@ describe('Picture', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(<Picture />)
+    wrapper = shallow(<Picture breedID="test_id"/>)
   })
 
   afterEach(() => {
@@ -31,10 +31,16 @@ describe('Picture', () => {
     expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/images/search')
   })
 
+  it('should pass the breed as a parameter in the request', () => {
+    const param = { breed_id: "test_id" }
+    expect(axios.get.mock.calls[0][1]).toMatchObject(param)
+  })
+
   it('should render the random image of a cat', () => {
     const image = wrapper.find('.cat-picture')
 
     expect(image.prop('alt')).toEqual(test_cat.id)
     expect(image.prop('src')).toEqual(test_cat.url)
   })
+
 })
