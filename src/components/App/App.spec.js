@@ -17,7 +17,14 @@ describe('App', () => {
     
     it('should render a picture', () => {
       const picture = wrapper.find("Picture")
+
       expect(picture.length).toEqual(1)
+    })
+
+    it('should render the breed', () => {
+      const breedType = wrapper.find("BreedType")
+
+      expect(breedType.length).toEqual(1)
     })
   })
 })
