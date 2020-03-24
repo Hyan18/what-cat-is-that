@@ -1,20 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-class BreedType extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
-  render() {
-    const { type } = this.props
+function BreedType(props) {
+  const { type } = props
 
-    return (
-      <div className="breedtype-div">
-        {type}
-      </div>
-    )
-  }
+  return (
+    <div className="breedtype-div">
+      {type}
+    </div>
+  )
 }
 
 export default BreedType
