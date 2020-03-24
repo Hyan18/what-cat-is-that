@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+  }
   
-  render () {
+  render() {
 
     return (
-      <div className="app-div" />
+      <div className="app-div">
+        Hello
+      </div>
     )
   }
 }
+
+App.displayName = 'App';
 
 export default App
