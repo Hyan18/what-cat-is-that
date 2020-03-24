@@ -6,7 +6,7 @@ import axios from 'axios'
 jest.mock('axios');
 axios.get.mockImplementation(() => {
   return Promise.resolve({
-    data: [ { id: "sphy", name: "Sphynx" } ]
+    data: [ { id: "test_id", name: "test_name", url: "test_url" } ]
   })
 })
 
@@ -30,5 +30,12 @@ describe('Picture', () => {
 
   it('should request a random image from TheCatApi', () => {
     expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/images/search')
+  })
+
+  it('should render the random image of a cat', () => {
+    const image = wrapper.find('.cat-picture')
+
+    expect(image.prop('alt')).toEqual('test_id')
+    expect(image.prop('src')).toEqual('test_url')
   })
 })

@@ -34,7 +34,7 @@ class Picture extends Component {
     } else {
       return (
         <div className="picture-div">
-          <img alt={cat.id} src={cat.url}/>
+          <img className="cat-picture" alt={cat.id} src={cat.url}/>
         </div>
       )
     }
