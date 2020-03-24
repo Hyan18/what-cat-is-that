@@ -46,10 +46,17 @@ describe('App', () => {
     expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/breeds')
   })
 
-  it('should pass the random breed to the breedType component', () => {
+  it('should pass the random breed name to the breedType component', () => {
     const breedType = wrapper.find("BreedType")
     const breedNames = listOfBreeds.map(breed => breed.name)
 
     expect(breedNames).toContain(breedType.prop('type'))
+  })
+
+  it('should pass the random breed id to the Picture component', () => {
+    const picture = wrapper.find("Picture")
+    const breedIDs = listOfBreeds.map(breed => breed.id)
+
+    expect(breedIDs).toContain(picture.prop('breedID'))
   })
 })

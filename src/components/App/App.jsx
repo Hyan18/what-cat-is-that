@@ -42,7 +42,7 @@ class App extends Component {
     } else {
       return (
         <div className="app-div">
-          <Picture />
+          <Picture breedID={breed.id} />
           <BreedType type={breed.name} />
         </div>
       )
