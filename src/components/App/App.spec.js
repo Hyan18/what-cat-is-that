@@ -14,5 +14,10 @@ describe('App', () => {
       expect(wrapper.find('.app-div')).toBeDefined()
       expect(wrapper.find('.app-div').length).toEqual(1)
     })
+    
+    it('should render a picture', () => {
+      const picture = wrapper.find("Picture")
+      expect(picture.length).toEqual(1)
+    })
   })
 })

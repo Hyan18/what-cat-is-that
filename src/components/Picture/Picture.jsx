@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import Picture from '../Picture/Picture'
 
-class App extends Component {
+class Picture extends Component {
   constructor(props) {
     super(props)
   }
@@ -9,12 +8,11 @@ class App extends Component {
   render() {
 
     return (
-      <div className="app-div">
-        Hello
+      <div className="picture-div">
         <Picture />
       </div>
     )
   }
 }
 
-export default App
+export default Picture
