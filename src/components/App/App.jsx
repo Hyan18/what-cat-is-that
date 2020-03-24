@@ -10,7 +10,7 @@ class App extends Component {
 
     this.state = {
       isLoaded: false,
-      breed: null
+      breed: {}
     }
   }
 
@@ -31,12 +31,22 @@ class App extends Component {
   }
   
   render() {
-    return (
-      <div className="app-div">
-        <Picture />
-        <BreedType />
-      </div>
-    )
+    const { isLoaded, breed } = this.state
+
+    if (!isLoaded) {
+      return (
+        <div className="app-div">
+          <span>Loading...</span>
+        </div>
+      )
+    } else {
+      return (
+        <div className="app-div">
+          <Picture />
+          <BreedType type={breed.name} />
+        </div>
+      )
+    }
   }
 }
 
