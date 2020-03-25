@@ -30,16 +30,27 @@ class BreedType extends Component {
     const { type } = this.props
     const { isHidden } = this.state
 
-    return (
-      <div className="breedtype-div">
-        <div className="breedText">
-          { isHidden ? 'Can you guess the breed?' : type }
+    if (isHidden) {
+      return (
+        <div className="breedtype-div">
+          <button className="toggle-show-breed" onClick={this.toggleShowBreed}>
+            {'Show Breed'}
+          </button>
+          <div className="breedText"/>
         </div>
-        <button className="toggle-show-breed" onClick={this.toggleShowBreed}>
-          { isHidden ? 'Show Breed' : 'Hide Breed' }
-        </button>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className="breedtype-div">
+          <button className="toggle-show-breed" onClick={this.toggleShowBreed}>
+            { 'Hide Breed' }
+          </button>
+          <div className="breedText">
+            { type }
+          </div>
+        </div>
+      )
+    }
   }
 }
 

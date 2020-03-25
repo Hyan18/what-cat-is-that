@@ -43,7 +43,9 @@ class App extends Component {
     } else {
       return (
         <div className="app-div">
-          <button className="new-cat-button" onClick={() => this.getCat(listOfBreeds)}>New Cat</button>
+          <button className="new-cat-button" onClick={() => this.getCat(listOfBreeds)}>
+            New Cat
+          </button>
           <Picture breedID={breed.id} />
           <BreedType type={breed.name}/>
         </div>

@@ -23,18 +23,38 @@ describe('BreedType', () => {
   })
 
   it('should display the breed after clicking show', () => {
-    const button = wrapper.find('.toggle-show-breed')
-    button.simulate('click')
+    let button = wrapper.find('.toggle-show-breed')
 
+    button.simulate('click')
+    button = wrapper.find('.toggle-show-breed')
+    
+    expect(button.text()).toContain("Hide Breed")
     expect(wrapper.text()).toContain("test_name")
   })
 
   it('should hide the breed after clicking the button again', () => {
-    const button = wrapper.find('.toggle-show-breed')
+    let button = wrapper.find('.toggle-show-breed')
     button.simulate('click')
     button.simulate('click')
+    button = wrapper.find('.toggle-show-breed')
 
+    expect(button.text()).toContain("Show Breed")
     expect(wrapper.text()).not.toContain("test_name")
+  })
+
+  describe('toggleShowBreed', () => {
+    it('should show the breed when toggled once', () => {
+      wrapper.instance().toggleShowBreed()
+
+      expect(wrapper.text()).toContain("test_name")
+    })
+
+    it('should hide the breed when toggled twice', () => {
+      wrapper.instance().toggleShowBreed()
+      wrapper.instance().toggleShowBreed()
+
+      expect(wrapper.text()).not.toContain("test_name")
+    })
   })
 
   describe('componentDidUpdate', () => {
