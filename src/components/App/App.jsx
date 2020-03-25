@@ -3,14 +3,13 @@ import Picture from '../Picture/Picture'
 import BreedType from '../BreedType/BreedType'
 import axios from 'axios'
 
-
 class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       isLoaded: false,
-      breed: {}
+      breed: {},
     }
   }
 
@@ -31,7 +30,8 @@ class App extends Component {
   }
   
   render() {
-    const { isLoaded, breed } = this.state
+    const { isLoaded, breed, isHidden } = this.state
+    
 
     if (!isLoaded) {
       return (
@@ -43,7 +43,7 @@ class App extends Component {
       return (
         <div className="app-div">
           <Picture breedID={breed.id} />
-          <BreedType type={breed.name} />
+          <BreedType type={breed.name} isHidden={isHidden}/>
         </div>
       )
     }

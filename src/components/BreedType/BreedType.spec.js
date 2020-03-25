@@ -14,7 +14,26 @@ describe('BreedType', () => {
     expect(wrapper.find('.breedtype-div').length).toEqual(1)
   })
 
-  it('should display the breed', () => {
+  it('should not display the breed by default', () => {
+    expect(wrapper.text()).not.toContain("test_name")
+  })
+
+  it('should have a button to show the breed', () => {
+    expect(wrapper.find('.toggle-show-breed').length).toEqual(1)
+  })
+
+  it('should display the breed after clicking show', () => {
+    const button = wrapper.find('.toggle-show-breed')
+    button.simulate('click')
+
     expect(wrapper.text()).toContain("test_name")
+  })
+
+  it('should hide the breed after clicking the button again', () => {
+    const button = wrapper.find('.toggle-show-breed')
+    button.simulate('click')
+    button.simulate('click')
+
+    expect(wrapper.text()).not.toContain("test_name")
   })
 })
