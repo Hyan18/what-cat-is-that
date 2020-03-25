@@ -27,13 +27,15 @@ describe('Picture', () => {
     expect(wrapper.find('.picture-div').length).toEqual(1)
   })
 
-  it('should request a random image from TheCatApi', () => {
-    expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/images/search')
-  })
-
-  it('should pass the breed as a parameter in the request', () => {
-    const param = { breed_id: "test_id" }
-    expect(axios.get.mock.calls[0][1]).toMatchObject(param)
+  describe('requestCat', () => {
+    it('should request a random image from TheCatApi', () => {
+      expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/images/search')
+    })
+  
+    it('should pass the breed as a parameter in the request', () => {
+      const param = { breed_id: "test_id" }
+      expect(axios.get.mock.calls[0][1]).toMatchObject(param)
+    })
   })
 
   it('should render the random image of a cat', () => {

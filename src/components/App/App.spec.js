@@ -42,8 +42,10 @@ describe('App', () => {
     expect(breedType.length).toEqual(1)
   })
 
-  it('should request a list of breeds from TheCatApi', () => {
-    expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/breeds')
+  describe('componentDidMount', () => {
+    it('should request a list of breeds from TheCatApi', () => {
+      expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/breeds')
+    })
   })
 
   it('should pass the random breed name to the breedType component', () => {
