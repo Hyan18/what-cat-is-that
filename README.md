@@ -17,3 +17,9 @@ As a user
 So I can try to guess the breed
 I want to have to toggle to see the breed
 ```
+
+```
+As a user
+So I can look at various cats
+I want to be able to click to see a new cat
+```
