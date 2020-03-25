@@ -1,6 +1,6 @@
 # What Cat Is That?
 
-Application to test your knowledge of cat breeds. 
+Application to test your knowledge of cat breeds. You can play with it [here](https://what-cat-is-that.herokuapp.com/)
 
 Built using React and calling [TheCatApi](https://thecatapi.com/).
 
