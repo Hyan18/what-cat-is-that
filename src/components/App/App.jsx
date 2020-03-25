@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Picture from '../Picture/Picture'
 import BreedType from '../BreedType/BreedType'
 import axios from 'axios'
+import './App.css'
 
 class App extends Component {
   constructor(props) {
@@ -43,10 +44,11 @@ class App extends Component {
     } else {
       return (
         <div className="app-div">
+          <h2>What Cat Is That?</h2>
+          <Picture breedID={breed.id} />
           <button className="new-cat-button" onClick={() => this.getCat(listOfBreeds)}>
             New Cat
           </button>
-          <Picture breedID={breed.id} />
           <BreedType type={breed.name}/>
         </div>
       )
