@@ -13,11 +13,25 @@ class Picture extends Component {
   }
 
   componentDidMount() {
+    this.requestCat(this.props.breedID)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.breedID !== this.props.breedID) {
+      this.setState({
+        isLoaded: false
+      })
+  
+      this.requestCat(this.props.breedID)
+    }
+  }
+
+  requestCat(breed) {
     axios.get(
       'https://api.thecatapi.com/v1/images/search',
       {
         headers: { 'x-api-key': process.env.REACT_APP_CAT_API_KEY },
-        breed_id: this.props.breedID
+        breed_id: breed
      })
       .then(
         (response) => {

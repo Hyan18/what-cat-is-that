@@ -25,12 +25,13 @@ class App extends Component {
     let randomBreed = listOfBreeds[getRandomInt(listOfBreeds.length)]
     this.setState({
       isLoaded: true,
-      breed: { id: randomBreed.id, name: randomBreed.name }
+      breed: { id: randomBreed.id, name: randomBreed.name },
+      listOfBreeds: listOfBreeds
     })
   }
   
   render() {
-    const { isLoaded, breed, isHidden } = this.state
+    const { isLoaded, breed, listOfBreeds } = this.state
     
 
     if (!isLoaded) {
@@ -42,8 +43,9 @@ class App extends Component {
     } else {
       return (
         <div className="app-div">
+          <button className="new-cat-button" onClick={() => this.getCat(listOfBreeds)}>New Cat</button>
           <Picture breedID={breed.id} />
-          <BreedType type={breed.name} isHidden={isHidden}/>
+          <BreedType type={breed.name}/>
         </div>
       )
     }

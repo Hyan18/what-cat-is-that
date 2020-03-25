@@ -59,4 +59,18 @@ describe('App', () => {
 
     expect(breedIDs).toContain(picture.prop('breedID'))
   })
+
+  it('should have a button to see a new cat', () => {
+    const button = wrapper.find(".new-cat-button")
+
+    expect(button.length).toEqual(1)
+  })
+
+  it('should call getCat when new cat is clicked', () => {
+    wrapper.instance().getCat = jest.fn()
+    const button = wrapper.find(".new-cat-button")
+    button.simulate('click')
+
+    expect(wrapper.instance().getCat).toHaveBeenCalledWith(listOfBreeds)
+  })
 })

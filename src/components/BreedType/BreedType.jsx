@@ -18,6 +18,14 @@ class BreedType extends Component {
     }))
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.type !== this.props.type) {
+      this.setState({
+        isHidden: true
+      })
+    }
+  }
+
   render() {
     const { type } = this.props
     const { isHidden } = this.state

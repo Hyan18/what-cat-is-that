@@ -43,4 +43,10 @@ describe('Picture', () => {
     expect(image.prop('src')).toEqual(test_cat.url)
   })
 
+  describe('componentDidUpdate', () => {
+    it('should request a new image from TheCatApi', () => { 
+      wrapper.setProps({ breedID: "new_test_id" })
+      expect(axios.get.mock.calls[0][0]).toEqual('https://api.thecatapi.com/v1/images/search')
+    })
+  })
 })

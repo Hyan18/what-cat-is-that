@@ -36,4 +36,11 @@ describe('BreedType', () => {
 
     expect(wrapper.text()).not.toContain("test_name")
   })
+
+  describe('componentDidUpdate', () => {
+    it('should hide the breed', () => { 
+      wrapper.setProps({ type: "new_test_name" })
+      expect(wrapper.text()).not.toContain("new_test_name")
+    })
+  })
 })
